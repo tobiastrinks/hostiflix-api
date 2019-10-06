@@ -18,7 +18,7 @@ class EmbeddedRedis {
     @PostConstruct
     @Throws(IOException::class)
     fun startRedis() {
-        redisServer = RedisServer.builder().port(port.toInt()).build()
+        redisServer = RedisServer.builder().setting("bind 127.0.0.1").port(port.toInt()).build()
         redisServer!!.start()
     }
 
